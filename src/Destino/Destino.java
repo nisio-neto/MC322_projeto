@@ -1,22 +1,28 @@
+package Destino;
 
-// Pacote Destino
-package Destinos;
+import java.util.ArrayList;
+import java.util.List;
+import Pacotes.Hotel;
+import Pacotes.Transporte;
 
-// Classe Destino para representar informações sobre destinos de viagem
-public class Destinos {
+public class Destino {
     private String nome;
     private String descricao;
     private CategoriaDestino categoria;
     private String pais;
     private String cidade;
+    private List<Hotel> hoteis;
+    private List<Transporte> transportes;
 
     // Construtor para inicializar objetos Destino com informações relevantes
-    public Destinos(String nome, String descricao, CategoriaDestino categoria, String pais, String cidade) {
+    public Destino(String nome, String descricao, CategoriaDestino categoria, String pais, String cidade) {
         this.nome = nome;
         this.descricao = descricao;
         this.categoria = categoria;
         this.pais = pais;
         this.cidade = cidade;
+        this.hoteis = new ArrayList<>();
+        this.transportes = new ArrayList<>();
     }
 
     // Métodos getters para acessar as informações do destino
@@ -40,14 +46,21 @@ public class Destinos {
         return cidade;
     }
 
-    // Um enum para representar Categorias de Destino
-	public enum CategoriaDestino {
-	    PRAIA,
-	    MONTANHA,
-	    CIDADE,
-	    POUSADA,
-	    FAZENDA,
-	    OUTRA_CATEGORIA
-	}
+    // Métodos para adicionar e obter hotéis associados ao destino
+    public void adicionarHotel(Hotel hotel) {
+        hoteis.add(hotel);
+    }
 
+    public List<Hotel> getHoteis() {
+        return hoteis;
+    }
+
+    // Métodos para adicionar e obter transportes associados ao destino
+    public void adicionarTransporte(Transporte transporte) {
+        transportes.add(transporte);
+    }
+
+    public List<Transporte> getTransportes() {
+        return transportes;
+    }
 }
