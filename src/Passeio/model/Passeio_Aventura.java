@@ -1,6 +1,6 @@
-package Passeio;
+package Passeio.model;
 
-import Destino.Destino;
+import Destino.model.Destino;
 
 public class Passeio_Aventura extends Passeio {
     private String faixaEtaria;

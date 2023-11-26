@@ -1,9 +1,9 @@
-package Destino;
+package Destino.model;
 
 import java.util.ArrayList;
 import java.util.List;
-import Pacotes.Hotel;
-import Pacotes.Transporte;
+import Pacotes.model.Hotel;
+import Pacotes.model.Transporte;
 
 public class Destino {
     private String nome;

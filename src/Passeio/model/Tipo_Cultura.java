@@ -1,4 +1,4 @@
-package Passeio;
+package Passeio.model;
 
 public enum Tipo_Cultura {
 	 GASTRONOMIA,

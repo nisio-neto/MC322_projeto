@@ -1,4 +1,4 @@
-package Usuario;
+package Usuario.model;
 
 public enum NivelAcesso {
 	 ADMIN,

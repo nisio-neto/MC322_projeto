@@ -1,4 +1,4 @@
-package Usuario;
+package Usuario.model;
 
 import java.time.LocalDate;
 //Enum para representar os níveis de acesso

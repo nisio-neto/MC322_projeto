@@ -1,8 +1,8 @@
-package Pacotes;
+package Pacotes.model;
 
 import java.util.List;
-import Passeio.Passeio_Relax;
-import Destino.Destino;
+import Passeio.model.Passeio_Relax;
+import Destino.model.Destino;
 
 //Classe representando um pacote de relaxamento
 public class PacoteRelax extends Pacote {

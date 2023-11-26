@@ -1,8 +1,8 @@
-package Pacotes;
+package Pacotes.model;
 import java.util.List;
-import Usuario.Guia;
-import Passeio.Passeio_Cultura;
-import Destino.Destino;
+import Usuario.model.Guia;
+import Passeio.model.Passeio_Cultura;
+import Destino.model.Destino;
 
 //Classe representando um pacote de cultura
 public class PacoteCultura extends Pacote {

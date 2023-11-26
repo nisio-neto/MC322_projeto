@@ -1,7 +1,7 @@
-package Passeio;
+package Passeio.model;
 
 import java.util.List;
-import Destino.Destino;
+import Destino.model.Destino;
 
 //Classe abstrata representando um passeio genérico
 public abstract class Passeio {

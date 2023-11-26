@@ -1,6 +1,6 @@
-package Passeio;
+package Passeio.model;
 
-import Destino.Destino;
+import Destino.model.Destino;
 //Enum para representar os tipos de cultura
 
 //Classe representando um passeio cultural

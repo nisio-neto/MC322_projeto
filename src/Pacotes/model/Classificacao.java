@@ -1,4 +1,4 @@
-package Pacotes;
+package Pacotes.model;
 
 public enum Classificacao {
 	 ESTRELA_1,

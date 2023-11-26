@@ -1,5 +1,5 @@
-package Pacotes;
-import Destino.Destino;
+package Pacotes.model;
+import Destino.model.Destino;
 
 
 //Classe Transporte com atributos, getters e setters

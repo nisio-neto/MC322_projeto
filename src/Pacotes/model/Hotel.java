@@ -1,5 +1,5 @@
-package Pacotes;
-import Destino.Destino;
+package Pacotes.model;
+import Destino.model.Destino;
 
 //Classe Hotel com atributos, getters e setters
 public class Hotel {

@@ -1,6 +1,6 @@
-package Reserva;
+package Reserva.model;
 
-import Pacotes.Pacote;
+import Pacotes.model.Pacote;
 //Classe representando uma reserva
 public class Reserva<T extends Pacote> {
  private int id;

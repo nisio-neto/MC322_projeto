@@ -1,10 +1,10 @@
-package Pacotes;
+package Pacotes.model;
 
 import java.util.List;
-import Pacotes.Hotel;
-import Pacotes.Transporte;
-import Pacotes.Agendamento;
-import Destino.Destino;
+import Pacotes.model.Hotel;
+import Pacotes.model.Transporte;
+import Pacotes.model.Agendamento;
+import Destino.model.Destino;
 
 public abstract class Pacote {
     private List<Destino> destinos;

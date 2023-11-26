@@ -1,4 +1,4 @@
-package Pacotes;
+package Pacotes.model;
 
 import java.time.LocalDateTime;
 

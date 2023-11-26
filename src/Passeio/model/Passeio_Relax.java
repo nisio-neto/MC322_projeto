@@ -1,6 +1,6 @@
-package Passeio;
+package Passeio.model;
 
-import Destino.Destino;
+import Destino.model.Destino;
 
 //Classe representando um passeio de relaxamento
 public class Passeio_Relax extends Passeio {
