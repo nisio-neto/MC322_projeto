@@ -1,26 +1,28 @@
 package Destino.view;
 
 import Destino.model.Destino;
+import javax.swing.JOptionPane;
 
 // Classe para exibir informações sobre um destino
 public class DestinoView {
     // Método para exibir detalhes sobre o destino
     public void mostrarDetalhesDestino(Destino destino) {
-        System.out.println("Detalhes do Destino:");
-        System.out.println("Nome: " + destino.getNome());
-        System.out.println("Descrição: " + destino.getDescricao());
-        System.out.println("Categoria: " + destino.getCategoria());
-        System.out.println("País: " + destino.getPais());
-        System.out.println("Cidade: " + destino.getCidade());
+        StringBuilder detalhes = new StringBuilder("Detalhes do Destino:\n");
+        detalhes.append("Nome: ").append(destino.getNome()).append("\n");
+        detalhes.append("Descrição: ").append(destino.getDescricao()).append("\n");
+        detalhes.append("Categoria: ").append(destino.getCategoria()).append("\n");
+        detalhes.append("País: ").append(destino.getPais()).append("\n");
+        detalhes.append("Cidade: ").append(destino.getCidade()).append("\n\n");
 
         // Exibindo informações sobre hotéis associados ao destino
-        System.out.println("Hotéis Associados:");
-        destino.getHoteis().forEach(hotel -> System.out.println("- " + hotel.getNome()));
+        detalhes.append("Hotéis Associados:\n");
+        destino.getHoteis().forEach(hotel -> detalhes.append("- ").append(hotel.getNome()).append("\n"));
 
         // Exibindo informações sobre transportes associados ao destino
-        System.out.println("Transportes Associados:");
-        destino.getTransportes().forEach(transporte -> System.out.println("- " + transporte.getNome()));
+        detalhes.append("\nTransportes Associados:\n");
+        destino.getTransportes().forEach(transporte -> detalhes.append("- ").append(transporte.getNome()).append("\n"));
 
-        System.out.println();  // Adiciona uma linha em branco para separar os destinos ao imprimir vários
+        // Exibir as informações usando JOptionPane
+        JOptionPane.showMessageDialog(null, detalhes.toString(), "Detalhes do Destino", JOptionPane.INFORMATION_MESSAGE);
     }
 }
