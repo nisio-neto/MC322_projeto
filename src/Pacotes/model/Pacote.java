@@ -5,18 +5,21 @@ import Pacotes.model.Hotel;
 import Pacotes.model.Transporte;
 import Pacotes.model.Agendamento;
 import Destino.model.Destino;
+import Passeio.model.*;
 
-public abstract class Pacote {
+public abstract class Pacote<T extends Passeio> {
     private List<Destino> destinos;
     private List<Hotel> hoteis;
     private List<Transporte> transportes;
+    private List<T> passeios;
     private Agendamento agendamento;
 
     // Construtor
-    public Pacote(List<Destino> destinos, List<Hotel> hoteis, List<Transporte> transportes, Agendamento agendamento) {
+    public Pacote(List<Destino> destinos, List<Hotel> hoteis, List<Transporte> transportes, List<T> passeios, Agendamento agendamento) {
         this.destinos = destinos;
         this.hoteis = hoteis;
         this.transportes = transportes;
+        this.passeios = passeios;
         this.agendamento = agendamento;
     }
 
@@ -43,6 +46,14 @@ public abstract class Pacote {
 
     public void setTransportes(List<Transporte> transportes) {
         this.transportes = transportes;
+    }
+
+    public List<T> getPasseios() {
+        return passeios;
+    }
+
+    public void setPasseios(List<T> passeios) {
+        this.passeios = passeios;
     }
 
     public Agendamento getAgendamento() {

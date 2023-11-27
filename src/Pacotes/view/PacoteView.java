@@ -121,19 +121,33 @@ public class PacoteView<T extends Pacote> {
         StringBuilder informacoes = new StringBuilder("Informações do Pacote:\n");
 
         informacoes.append("Destinos:\n");
-        for (Destino destino : pacote.getDestinos()) {
-            informacoes.append(destino.getNome()).append("\n");
+        for (Object destino : pacote.getDestinos()) {
+            if (destino instanceof Destino) {
+                informacoes.append(((Destino) destino).getNome()).append("\n");
+            }
         }
 
         informacoes.append("Hoteis:\n");
-        for (Hotel hotel : pacote.getHoteis()) {
-            informacoes.append(hotel.getNome()).append("\n");
+        for (Object hotel : pacote.getHoteis()) {
+            if (hotel instanceof Hotel) {
+                informacoes.append(((Hotel) hotel).getNome()).append("\n");
+            }
         }
 
         informacoes.append("Transportes:\n");
-        for (Transporte transporte : pacote.getTransportes()) {
-            informacoes.append(transporte.getNome()).append("\n");
+        for (Object transporte : pacote.getTransportes()) {
+            if (transporte instanceof Transporte) {
+                informacoes.append(((Transporte) transporte).getNome()).append("\n");
+            }
         }
+
+        informacoes.append("Passeios:\n");
+        for (Object passeio : pacote.getPasseios()) {
+            if (passeio instanceof Passeio) {
+                informacoes.append(((Passeio) passeio).getNome()).append("\n");
+            }
+        }
+
 
         informacoes.append("Agendamento:\n")
                    .append("Ida: ").append(pacote.getAgendamento().getDataIda()).append("\n")
