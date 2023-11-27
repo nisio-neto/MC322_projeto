@@ -1,8 +1,13 @@
 package Reserva.view;
 
+import Pacotes.model.Hotel;
 import Pacotes.model.Pacote;
+import Pacotes.model.Transporte;
+import Passeio.model.Passeio;
 import Reserva.model.Reserva;
 import javax.swing.JOptionPane;
+
+import Destino.model.Destino;
 
 public class ReservaView<T extends Pacote> {
 
@@ -13,23 +18,35 @@ public class ReservaView<T extends Pacote> {
         informacoes.append("Informação: ").append(reserva.getInformacao()).append("\n");
 
         // Obtém as informações específicas do pacote associado à reserva
-        Pacote pacote = reserva.getPacote();
+        T pacote = reserva.getPacote();
         informacoes.append("Informações do Pacote:\n");
         informacoes.append("Destinos:\n");
-        pacote.getDestinos().forEach(destino -> informacoes.append("- ").append(destino.getNome()).append("\n"));
+        for (Object destino : pacote.getDestinos()) {
+            if (destino instanceof Destino) {
+                informacoes.append(((Destino) destino).getNome()).append("\n");
+            }
+        }
 
         informacoes.append("Hoteis:\n");
-        pacote.getHoteis().forEach(hotel -> informacoes.append("- ").append(hotel.getNome()).append("\n"));
+        for (Object hotel : pacote.getHoteis()) {
+            if (hotel instanceof Hotel) {
+                informacoes.append(((Hotel) hotel).getNome()).append("\n");
+            }
+        }
 
         informacoes.append("Transportes:\n");
-        pacote.getTransportes().forEach(transporte -> informacoes.append("- ").append(transporte.getNome()).append("\n"));
+        for (Object transporte : pacote.getTransportes()) {
+            if (transporte instanceof Transporte) {
+                informacoes.append(((Transporte) transporte).getNome()).append("\n");
+            }
+        }
 
-        informacoes.append("Agendamento:\n")
-                .append("Ida: ").append(pacote.getAgendamento().getDataIda()).append("\n")
-                .append("Volta: ").append(pacote.getAgendamento().getDataVolta()).append("\n")
-                .append("Informações: ").append(pacote.getAgendamento().getInformacoes()).append("\n")
-                .append("Checkin: ").append(pacote.getAgendamento().getCheckin()).append("\n")
-                .append("Checkout: ").append(pacote.getAgendamento().getCheckout()).append("\n");
+        informacoes.append("Passeios:\n");
+        for (Object passeio : pacote.getPasseios()) {
+            if (passeio instanceof Passeio) {
+                informacoes.append(((Passeio) passeio).getNome()).append("\n");
+            }
+        }
 
         JOptionPane.showMessageDialog(null, informacoes.toString(), "Informações da Reserva", JOptionPane.INFORMATION_MESSAGE);
     }
@@ -39,3 +56,4 @@ public class ReservaView<T extends Pacote> {
         return new Reserva<>(id, informacao, pacote);
     }
 }
+
