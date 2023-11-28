@@ -117,6 +117,24 @@ public class Sistema {
     public void adicionarTransporte(Transporte transporte) {
         transportes.add(transporte);
     }
+    public void adicionarCultura(Passeio_Cultura cultural) {
+        cultura.add(cultural);
+    }
+    public void adicionarAventura(Passeio_Aventura cultural) {
+        aventura.add(cultural);
+    }
+    public void adicionarRelax(Passeio_Relax cultural) {
+        relax.add(cultural);
+    }
+    public void adicionarPacoteCult(PacoteCultura cultural) {
+        pacotes.add(cultural);
+    }
+    public void adicionarPacoteAvent(PacoteAventura cultural) {
+        pacotes.add(cultural);
+    }
+    public void adicionarPacoteRelax(PacoteRelax cultural) {
+        pacotes.add(cultural);
+    }
     public void adicionarUsuario(Usuario usuario) {
         if (usuario != null) {
             usuarios.add(usuario);
