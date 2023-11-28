@@ -9,35 +9,35 @@ import java.util.*;
 public class UsuarioView<T extends Usuario> {
 
     // Método para realizar o login
-	public void fazerLogin(List<Usuario> usuarios) {
-        String login = JOptionPane.showInputDialog("Digite o login:");
-        String senha = JOptionPane.showInputDialog("Digite a senha:");
+    public void fazerLogin(Usuario usuario) {
+        try {
+            String login = JOptionPane.showInputDialog("Digite o login:");
+            String senha = JOptionPane.showInputDialog("Digite a senha:");
 
-        boolean loginBemSucedido = false;
-
-        for (Usuario usuario : usuarios) {
+            // Verifica se o login e senha correspondem ao usuário
             if (usuario.getLogin().equals(login) && usuario.getPassword().equals(senha)) {
-                loginBemSucedido = true;
-                break;
+                JOptionPane.showMessageDialog(null, "Login bem-sucedido!");
+            } else {
+                JOptionPane.showMessageDialog(null, "Login falhou. Verifique suas credenciais.");
             }
-        }
-
-        if (loginBemSucedido) {
-            JOptionPane.showMessageDialog(null, "Login bem-sucedido!");
-        } else {
-            JOptionPane.showMessageDialog(null, "Login falhou. Verifique suas credenciais.");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Ocorreu um erro durante o login: " + e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         }
     }
 
     // Método para exibir informações do usuário
     public void exibirInformacoes(Usuario usuario) {
-        String informacoes = "Nome: " + usuario.getNome() + "\n" +
-                             "CPF: " + usuario.getCpf() + "\n" +
-                             "Email: " + usuario.getEmail() + "\n" +
-                             "Contato: " + usuario.getContato() + "\n" +
-                             "Data de Nascimento: " + usuario.getDataNascimento() + "\n";
+        try {
+            String informacoes = "Nome: " + usuario.getNome() + "\n" +
+                    "CPF: " + usuario.getCpf() + "\n" +
+                    "Email: " + usuario.getEmail() + "\n" +
+                    "Contato: " + usuario.getContato() + "\n" +
+                    "Data de Nascimento: " + usuario.getDataNascimento() + "\n";
 
-        JOptionPane.showMessageDialog(null, informacoes, "Informações do Usuário", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, informacoes, "Informações do Usuário", JOptionPane.INFORMATION_MESSAGE);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Ocorreu um erro ao exibir as informações do usuário: " + e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+        }
     }
     
     public Usuario adicionarAdmin() {
