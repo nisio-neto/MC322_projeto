@@ -9,13 +9,21 @@ import java.util.*;
 public class UsuarioView<T extends Usuario> {
 
     // Método para realizar o login
-    public void fazerLogin(Usuario usuario) {
+    public void fazerLogin(List<Usuario> usuarios) {
         try {
-            String login = JOptionPane.showInputDialog("Digite o login:");
+        	String login = JOptionPane.showInputDialog("Digite o login:");
             String senha = JOptionPane.showInputDialog("Digite a senha:");
 
-            // Verifica se o login e senha correspondem ao usuário
-            if (usuario.getLogin().equals(login) && usuario.getPassword().equals(senha)) {
+            boolean loginBemSucedido = false;
+
+            for (Usuario usuario : usuarios) {
+                if (usuario.getLogin().equals(login) && usuario.getPassword().equals(senha)) {
+                    loginBemSucedido = true;
+                    break;
+                }
+            }
+
+            if (loginBemSucedido) {
                 JOptionPane.showMessageDialog(null, "Login bem-sucedido!");
             } else {
                 JOptionPane.showMessageDialog(null, "Login falhou. Verifique suas credenciais.");
@@ -80,4 +88,3 @@ public class UsuarioView<T extends Usuario> {
         }
     }
 }
-
