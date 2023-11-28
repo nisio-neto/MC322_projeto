@@ -1,6 +1,6 @@
 package Destino.view;
 
-import Destino.model.Destino;
+import Destino.model.*;
 import javax.swing.JOptionPane;
 
 // Classe para exibir informações sobre um destino
@@ -25,4 +25,45 @@ public class DestinoView {
         // Exibir as informações usando JOptionPane
         JOptionPane.showMessageDialog(null, detalhes.toString(), "Detalhes do Destino", JOptionPane.INFORMATION_MESSAGE);
     }
+    public Destino criarDestinoInterativo() {
+        String nome = JOptionPane.showInputDialog("Digite o nome do destino:");
+        String descricao = JOptionPane.showInputDialog("Digite a descrição do destino:");
+        CategoriaDestino categoria = escolherCategoriaDestino();
+        String pais = JOptionPane.showInputDialog("Digite o país do destino:");
+        String cidade = JOptionPane.showInputDialog("Digite a cidade do destino:");
+
+        return new Destino(nome, descricao, categoria, pais, cidade);
+    }
+
+    private CategoriaDestino escolherCategoriaDestino() {
+        String[] opcoes = {
+            "Praia",
+            "Montanha",
+            "Cidade",
+            "Pousada",
+            "Fazenda",
+            "Outra Categoria"
+        };
+
+        int escolha = JOptionPane.showOptionDialog(null, "Escolha a categoria do destino:", "Categoria do Destino", JOptionPane.DEFAULT_OPTION,
+                JOptionPane.QUESTION_MESSAGE, null, opcoes, opcoes[0]);
+
+        switch (escolha) {
+            case 0:
+                return CategoriaDestino.PRAIA;
+            case 1:
+                return CategoriaDestino.MONTANHA;
+            case 2:
+                return CategoriaDestino.CIDADE;
+            case 3:
+                return CategoriaDestino.POUSADA;
+            case 4:
+                return CategoriaDestino.FAZENDA;
+            case 5:
+                return CategoriaDestino.OUTRA_CATEGORIA;
+            default:
+                return CategoriaDestino.OUTRA_CATEGORIA;
+        }
+    }
+    
 }
