@@ -279,5 +279,93 @@ public class Sistema {
     public List<Destino> getDestinos() {
         return destinos;
     }
+    
+    public void rodarSistemaUsuario() {
+        while (true) {
+            int escolha = exibirMenuUsuario();
+
+            switch (escolha) {
+                case 1:
+                    visualizarPacotes();
+                    break;
+                case 2:
+                    reservarPacote();
+                    break;
+                case 3:
+                    visualizarReservas();
+                    break;
+                case 4:
+                	return;
+                default:
+                    JOptionPane.showMessageDialog(null, "Opção inválida. Tente novamente.");
+            }
+        }
+    }
+
+    private int exibirMenuUsuario() {
+        String[] opcoes = {"Visualizar Pacotes", "Reservar Pacote", "Visualizar Reservas", "Sair do Sistema"};
+        return ExibirOpcoes(opcoes);
+    }
+
+    private void visualizarPacotes() {
+    	try {
+            for (Pacote<?> pacote : pacotes) {
+                pacoteView.listarInformacoesPacote(pacote);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Ocorreu um erro ao visualizar os pacotes: " + e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    private void reservarPacote() {
+        try {
+            // Exibir a lista de pacotes disponíveis
+            String[] opcoesPacotes = new String[pacotes.size()];
+            for (int i = 0; i < pacotes.size(); i++) {
+                opcoesPacotes[i] = "Pacote " + (i + 1);
+            }
+
+            int escolhaPacote = JOptionPane.showOptionDialog(
+                    null,
+                    "Escolha o pacote a ser reservado:",
+                    "Reservar Pacote",
+                    JOptionPane.DEFAULT_OPTION,
+                    JOptionPane.QUESTION_MESSAGE,
+                    null,
+                    opcoesPacotes,
+                    opcoesPacotes[0]
+            );
+
+            if (escolhaPacote >= 0) {
+                // Usuário escolheu um pacote, agora você pode criar a reserva
+                Pacote<?> pacoteEscolhido = pacotes.get(escolhaPacote);
+
+                // Aqui você pode implementar a lógica para obter informações adicionais do usuário, se necessário
+                String informacao = JOptionPane.showInputDialog("Digite informações adicionais para a reserva:");
+
+                // Criar a reserva
+                Reserva<Pacote> reserva = reservaView.criarReserva(1, informacao, pacoteEscolhido);
+
+                // Adicionar a reserva à lista de reservas
+                reservas.add(reserva);
+
+                JOptionPane.showMessageDialog(null, "Reserva realizada com sucesso!");
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Ocorreu um erro ao reservar o pacote: " + e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    private void visualizarReservas() {
+        try {
+            for (Reserva<?> reserva : reservas) {
+                // reservaView.exibirInformacoesReserva(reserva);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Ocorreu um erro ao visualizar as reservas: " + e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+
 }
 
